@@ -1,15 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <h1 class="text-center my-4">Game info</h1>
+    <div class="container py-5">
+        <h1 class="text-center py-2">Game info</h1>
 
         <h3 class="col-red">{{ $game->title }}</h3>
-        <div class="row mb-3">
+        <div class="row pb-3">
             <img class="col-6 img-fluid" src="{{ $game->image }}" alt="{{ $game->title }}">
             <div class="col-4 offset-2">
                 <p>{{ $game->description }}</p>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush my-3">
                     <li class="list-group-item">
                         <strong>Price: </strong> {{ $game->price }} €
                     </li>
@@ -20,7 +20,7 @@
                         <strong>Console: </strong> {{ $game->console }}
                     </li>
                 </ul>
-                <a href="{{ route('games.index') }}" class="btn btn-primary">
+                <a href="{{ route('games.index') }}" class="btn btn-primary mx-3">
                     Return to list
                 </a>
                 <a class="btn btn-success" href="{{ route('games.edit', $game->id) }}">

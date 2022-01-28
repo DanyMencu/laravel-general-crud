@@ -4,8 +4,15 @@
     <section class="py-3">
     <div class="container">
         <h1>Games List</h1>
+        
+        @if (session('deleted'))
+            <div class="alert alert-success">
+                <strong>{{ session('deleted') }}</strong>
+                : it was correctly edeleted
+            </div>
+        @endif
 
-        <table class="table table-striped my-4">
+        <table class="table table-dark table-hover my-4">
             <thead class="table-dark">
                 <tr>
                     <td>Id</td>
@@ -36,6 +43,14 @@
                             href="{{ route('games.edit', $game->id) }}">
                                 Edit
                             </a>
+                        </td>
+                        <td>
+                            <form action="{{ route('games.destroy', $game->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
                         </td>
                     </tr>
                 @endforeach

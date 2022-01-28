@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <h1 class="text-center my-3">Edit game: {{ $game->title }}</h1>
+    <div class="container py-5">
+        <h1 class="text-center">Edit game: {{ $game->title }}</h1>
 
         <div class="row">
             <div class="col-8 offset-2">

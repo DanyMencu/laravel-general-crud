@@ -3,5 +3,10 @@ header {
 }
 
 footer {
+  background-color: #171110;
+  color: #fff;
+}
+
+main {
   color: #fff;
 }
