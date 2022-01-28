@@ -15,11 +15,9 @@ class GameController extends Controller
     public function index()
     {
         //Games list
-        $games = Game::all();
+        $games = Game::paginate(10);
 
-        
-
-
+        return view('games.index', compact('games'));
     }
 
     /**
@@ -49,9 +47,13 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Game $game)
     {
-        //
+        //Game details
+        if($game) {
+            return view('games.show', compact('game'));
+        }
+        abort(404);
     }
 
     /**
