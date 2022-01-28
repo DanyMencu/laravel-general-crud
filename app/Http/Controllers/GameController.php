@@ -47,9 +47,11 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Game $game)
+    public function show($slug)
     {
         //Game details
+        $game = Game::where('slug', '=', $slug)->first();
+
         if($game) {
             return view('games.show', compact('game'));
         }

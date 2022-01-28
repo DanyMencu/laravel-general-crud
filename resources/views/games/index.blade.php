@@ -27,7 +27,7 @@
                         <td>{{ $game->price }}</td>
                         <td>
                             <a class="btn btn-primary"
-                            href="{{ route('games.show', $game->id) }}">
+                            href="{{ route('games.show', $game->slug) }}">
                                 Show Details
                             </a>
                         </td>
