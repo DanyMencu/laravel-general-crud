@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('header-title', 'Create New Game | GS |')
+
 @section('content')
     <div class="container py-5">
         <h1 class="text-center">New game:</h1>

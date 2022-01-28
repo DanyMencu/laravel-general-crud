@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('header-title', 'All Games DB List | GS |')
+
 @section('content')
     <section class="py-3">
     <div class="container">

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('header-title', 'Change Game Details | GS |')
+
 @section('content')
     <div class="container py-5">
         <h1 class="text-center">Edit game: {{ $game->title }}</h1>
