@@ -2,35 +2,32 @@
 
 @section('content')
     <div class="container py-5">
-        <h1 class="text-center">Edit game: {{ $game->title }}</h1>
+        <h1 class="text-center">New game:</h1>
 
         <div class="row">
             <div class="col-8 offset-2">
-                <form action="{{ route('games.update', $game->id) }}" method="POST">
+                <form action="{{ route('games.store') }}" method="POST">
                     @csrf
-                    @method('PATCH')
 
                     {{-- Title --}}
                     <div class="mb-4">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" value="{{ $game->title }}">
+                        <input type="text" class="form-control" name="title" id="title">
                     </div>
 
                     {{-- Author --}}
                     <div class="mb-4">
                         <label for="author" class="form-label">Author</label>
-                        <input type="text" class="form-control" name="author" id="author" value="{{ $game->author }}">
+                        <input type="text" class="form-control" name="author" id="author">
                     </div>
 
                     {{-- Status --}}
                     <label for="status" class="form-label">Status</label>
                     <select name="status" id="status" class="form-control mb-4">
-                        <option value="nuovo"
-                            @if ($game->status == 'nuovo')selected @endif >
+                        <option value="nuovo">
                             Nuovo
                         </option>
-                        <option value="usato"
-                            @if ($game->status == 'usato')selected @endif >
+                        <option value="usato">
                             Usato
                         </option>
                     </select>
@@ -38,16 +35,13 @@
                     {{-- Console --}}
                     <label for="console" class="form-label">Console</label>
                     <select name="console" id="console" class="form-control mb-4">
-                        <option value="pc"
-                            @if ($game->console == 'pc')selected @endif >
+                        <option value="pc">
                             Pc
                         </option>
-                        <option value="play_station_5"
-                            @if ($game->console == 'play_station_5')selected @endif >
+                        <option value="play_station_5">
                             PlayStation 5
                         </option>
-                        <option value="xbox_x"
-                            @if ($game->console == 'xbox_x')selected @endif >
+                        <option value="xbox_x">
                             Xbox series X
                         </option>
                     </select>
@@ -55,17 +49,16 @@
                     {{-- Price --}}
                     <div class="mb-4">
                         <label for="price" class="form-label">Price</label>
-                        <input type="text" class="form-control" name="price" id="price"
-                        value="{{ $game->price }}">
+                        <input type="text" class="form-control" name="price" id="price" placeholder="€">
                     </div>
 
                     {{-- Image --}}
                     <div class="mb-4">
                         <label for="image" class="form-label">Image</label>
-                        <input type="text" class="form-control" name="image" id="image" value="{{ $game->image }}">
+                        <input type="text" class="form-control" name="image" id="image">
                     </div>
 
-                    <button type="submit" class="btn btn-success">Edit details</button>
+                    <button type="submit" class="btn btn-primary">Add new game</button>
 
                 </form>
             </div>

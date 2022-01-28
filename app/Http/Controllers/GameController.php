@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 use App\Game;
 
 class GameController extends Controller
@@ -27,7 +29,8 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        //Create new game
+        return view('games.create');
     }
 
     /**
@@ -38,7 +41,16 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Store data from create
+        $new_data = $request->all();
+        $new_data['slug'] = Str::slug($new_data['title']);
+
+        $new_game = new Game();
+        $new_game->fill($new_data);
+
+        $new_game->save();
+
+        return redirect()->route('games.show', $new_game->id);
     }
 
     /**
