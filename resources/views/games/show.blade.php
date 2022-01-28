@@ -20,7 +20,12 @@
                         <strong>Console: </strong> {{ $game->console }}
                     </li>
                 </ul>
-                <a href="{{ route('games.index') }}" class="btn btn-primary">Return to list</a>
+                <a href="{{ route('games.index') }}" class="btn btn-primary">
+                    Return to list
+                </a>
+                <a class="btn btn-success" href="{{ route('games.edit', $game->id) }}">
+                    Edit
+                </a>
             </div>
         </div>
     </div>

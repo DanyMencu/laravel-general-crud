@@ -47,10 +47,10 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Game $game)
     {
         //Game details
-        $game = Game::where('slug', '=', $slug)->first();
+        /* $game = Game::where('slug', '=', $slug)->first(); */
 
         if($game) {
             return view('games.show', compact('game'));
@@ -64,9 +64,15 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Game $game)
     {
-        //
+        //Change game details
+        /* $game = Game::where('slug', '=', $slug)->first(); */
+
+        if ($game) {
+            return view('games.edit', compact('game'));
+        }
+        abort(404);
     }
 
     /**
@@ -78,7 +84,14 @@ class GameController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Update game data
+        $new_data = $request->all();
+
+        $game = Game::find($id);
+
+        $game->update($new_data);
+
+        return redirect()->route('games.show', $game->id);
     }
 
     /**
